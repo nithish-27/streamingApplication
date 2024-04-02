@@ -44,10 +44,25 @@ const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
+  // due to the CORS error iam using the local json file
   useEffect(() => {
     setVideos(videosData);
     setFilteredVideos(videosData);
   }, []);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get('https://api.example.com/videos');
+  //       setVideos(response.data);
+  //       setFilteredVideos(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
